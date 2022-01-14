@@ -23,7 +23,7 @@ export default function Transcription() {
   const initialSteps = [
     {
       title: "Upload",
-      content: <UploadPage handleUpload={(values)=> upload(values)} />,
+      content: <UploadPage handleUpload={(values) => upload(values)} />,
       status: "process",
       icon: <UploadOutlined />,
     },
@@ -35,7 +35,7 @@ export default function Transcription() {
     },
     {
       title: "Done",
-      content: <DonePage />,
+      content: <DonePage handleAgain={() => setCurrent(0)} />,
       status: "wait",
       icon: <SmileOutlined />,
     },
@@ -124,7 +124,7 @@ export default function Transcription() {
           />
         ))}
       </Steps>
-      {current === "1" ? <Progress percent={percent | 0} /> : ""}
+      {current === 1 ? <Progress percent={percent | 0} /> : ""}
       <div className="steps-content">{steps[current].content}</div>
     </div>
   );
